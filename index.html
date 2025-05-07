@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Happy Birthday Meri Bandariya</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff4081;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #wish {
+      display: none;
+      text-align: center;
+      font-size: 1.8rem;
+      color: #fff;
+      background-color: #ff4081;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+      animation: popUp 1s ease-out forwards;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      background-color: #fff;
+      border: none;
+      border-radius: 25px;
+      color: #ff4081;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes popUp {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Click the button for a surprise!</h1>
+  <button onclick="showWish()">Show Birthday Wish</button>
+  <div id="wish">
+    Happy BirthdayAyeshu! Wishing you joy, laughter, and love on your special day! May Allah Bless You ! 
+    Roses Are Red ! voilet Are Blue ! I Am At Work ! Always Thinking About You!
+  </div>
+
+  <script>
+    
+    function showWish() {
+      const wish = document.getElementById('wish');
+      wish.style.display = 'block';
+
+      // Add simple confetti effect using emojis
+     for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.innerText = '🎉 🎉  🌙';
+        confetti.style.position = 'fixed';
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.top = '-50px';
+        confetti.style.fontSize = '2rem';
+        confetti.style.animation = 'fall ${2 + Math.random() * 3}s linear forwards';
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 5000);   
+      }  
+
+    }
+
+    // Add animation for confetti
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = `
+      @keyframes fall {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(100vh); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(styleSheet);  
+
+
+    
+  </script>
+</body>
+</html>
